@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirei — F · Boutique Ikoniq</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#FAF7EE;--cream:#EFE6CF;--ink:#1E1C19;--ink-soft:#5C5A55;--sage:#7E9783;--sage-deep:#3F5749;--gold:#B8975A;--blush:#E8D2BE;
+  --serif:'Cormorant',serif;--sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* === NAV === */
+.nav{position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:22px 48px;background:rgba(250,247,238,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(30,28,25,.06)}
+.nav-brand{font-family:var(--serif);font-style:italic;font-size:24px;letter-spacing:.02em}
+.nav-brand span{color:var(--gold)}
+.nav-links{display:flex;gap:32px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.nav-links a{padding-bottom:2px;border-bottom:1px solid transparent;transition:border-color .3s}
+.nav-links a:hover{border-color:var(--gold)}
+.nav-cta{font-size:12px;letter-spacing:.2em;text-transform:uppercase;background:var(--ink);color:var(--bg);padding:11px 22px;border-radius:999px}
+@media (max-width:760px){.nav{padding:18px 24px}.nav-links{display:none}}
+
+/* === HERO bodegón + texto === */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:88vh;align-items:stretch;overflow:hidden}
+.hero-left{padding:120px 60px;display:flex;flex-direction:column;justify-content:center;background:var(--bg);position:relative}
+.hero-cap{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold);margin-bottom:32px;letter-spacing:.05em}
+.hero-cap::before{content:'';display:inline-block;width:40px;height:1px;background:var(--gold);vertical-align:middle;margin-right:14px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(48px,7vw,108px);line-height:.96;letter-spacing:-.015em;margin-bottom:32px}
+.hero h1 em{font-style:italic;color:var(--sage-deep)}
+.hero-sub{font-family:var(--serif);font-style:italic;font-size:clamp(18px,2vw,24px);max-width:480px;color:var(--ink-soft);line-height:1.5;margin-bottom:44px}
+.hero-actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.btn-wa{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--bg);padding:18px 30px;border-radius:999px;font-size:13px;letter-spacing:.15em;text-transform:uppercase;font-weight:500;transition:transform .3s}
+.btn-wa:hover{transform:translateY(-2px)}
+.hero-link{font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:3px}
+.hero-right{position:relative;background:linear-gradient(135deg,var(--cream) 0%,var(--blush) 100%);display:flex;align-items:center;justify-content:center;padding:60px;overflow:hidden}
+/* Bodegón productos SVG mockup */
+.bodegon{position:relative;width:100%;max-width:480px;aspect-ratio:1/1}
+.bot{position:absolute;border-radius:6px;box-shadow:0 20px 60px rgba(30,28,25,.15);transition:transform .8s cubic-bezier(.16,1,.3,1)}
+.bot-1{width:36%;height:62%;left:6%;top:18%;background:linear-gradient(180deg,#2A2724 0%,#1A1816 100%);transform:rotate(-6deg)}
+.bot-2{width:30%;height:55%;left:36%;top:30%;background:linear-gradient(180deg,#C8B493 0%,#9F8870 100%);transform:rotate(2deg)}
+.bot-3{width:32%;height:58%;left:60%;top:24%;background:linear-gradient(180deg,#7E9783 0%,#5E7766 100%);transform:rotate(4deg)}
+.bot-cap{position:absolute;width:60%;left:20%;top:6%;height:14%;background:linear-gradient(180deg,var(--gold) 0%,#9A7E48 100%);border-radius:3px}
+.bot-label{position:absolute;left:14%;right:14%;top:32%;text-align:center;color:#fff;font-family:var(--serif);font-style:italic;font-size:12px;letter-spacing:.08em;opacity:.92}
+.bodegon:hover .bot-1{transform:rotate(-8deg) translateY(-4px)}
+.bodegon:hover .bot-2{transform:rotate(0deg) translateY(-6px)}
+.bodegon:hover .bot-3{transform:rotate(6deg) translateY(-4px)}
+.bodegon-tag{position:absolute;bottom:-30px;left:50%;transform:translateX(-50%);font-family:var(--serif);font-style:italic;font-size:14px;color:var(--ink-soft);letter-spacing:.1em;white-space:nowrap}
+@media (max-width:920px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:120px 28px 60px;order:2}
+  .hero-right{aspect-ratio:4/3;order:1;padding:80px 28px 40px}
+}
+
+/* === CATÁLOGO IKONIQ protagonista === */
+.catalog{padding:140px 60px;background:var(--cream)}
+.catalog-head{max-width:1180px;margin:0 auto 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end}
+.catalog-cap{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
+.catalog h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,5.5vw,80px);line-height:1;letter-spacing:-.01em}
+.catalog h2 em{font-style:italic;color:var(--sage-deep)}
+.catalog-intro{font-family:var(--serif);font-style:italic;font-size:19px;line-height:1.6;color:var(--ink-soft);max-width:420px;align-self:end}
+.catalog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1180px;margin:0 auto}
+.cat-card{background:var(--bg);padding:32px 28px 32px;border-radius:4px;display:flex;flex-direction:column;transition:transform .4s,box-shadow .4s;position:relative;border:1px solid rgba(30,28,25,.05)}
+.cat-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(30,28,25,.08)}
+.cat-card-art{width:100%;aspect-ratio:5/4;display:flex;align-items:center;justify-content:center;margin-bottom:24px;background:linear-gradient(135deg,var(--cream) 0%,var(--bg) 100%);border-radius:3px;position:relative;overflow:hidden}
+.cat-card-art svg{width:48px;height:48px;color:var(--sage)}
+.cat-card-art::before{content:'';position:absolute;top:12px;left:12px;width:24px;height:24px;border:1px solid var(--gold);border-radius:50%;opacity:.4}
+.cat-card-num{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--gold);letter-spacing:.08em;margin-bottom:8px}
+.cat-card h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.15;margin-bottom:8px;color:var(--ink)}
+.cat-card h3 em{font-style:italic;color:var(--sage-deep)}
+.cat-card-tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:14px}
+.cat-card p{font-size:14px;line-height:1.6;color:var(--ink-soft);margin-bottom:20px;flex:1}
+.cat-card-cta{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px;align-self:flex-start;transition:color .3s,border-color .3s}
+.cat-card-cta:hover{color:var(--sage-deep);border-color:var(--gold)}
+.catalog-foot{text-align:center;margin-top:60px}
+.catalog-foot a{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:4px}
+@media (max-width:880px){.catalog{padding:80px 24px}.catalog-head{grid-template-columns:1fr;gap:24px}.catalog-grid{grid-template-columns:1fr}}
+
+/* === BLOQUE SERVICIOS condensado === */
+.svc{padding:140px 60px;background:var(--bg)}
+.svc-inner{max-width:1100px;margin:0 auto}
+.svc-cap{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block;text-align:center}
+.svc h2{font-family:var(--serif);font-weight:300;font-size:clamp(36px,5vw,68px);line-height:1.05;letter-spacing:-.01em;text-align:center;margin-bottom:72px;max-width:780px;margin-left:auto;margin-right:auto}
+.svc h2 em{font-style:italic;color:var(--sage-deep)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.svc-item{padding:32px 24px;background:var(--cream);border-radius:3px;text-align:center;transition:background .4s}
+.svc-item:hover{background:#E5D9BE}
+.svc-item-num{font-family:var(--serif);font-style:italic;font-size:32px;color:var(--gold);margin-bottom:14px;display:block}
+.svc-item h3{font-family:var(--serif);font-weight:400;font-size:22px;line-height:1.2;margin-bottom:10px;color:var(--ink)}
+.svc-item h3 em{font-style:italic;color:var(--sage-deep)}
+.svc-item p{font-size:13px;color:var(--ink-soft);line-height:1.55;margin:0}
+@media (max-width:880px){.svc{padding:80px 24px}.svc-grid{grid-template-columns:1fr 1fr;gap:14px}.svc-item{padding:24px 18px}}
+
+/* === FIRMA mini === */
+.firma{padding:120px 60px;background:var(--sage-deep);color:#fff;text-align:center}
+.firma-inner{max-width:760px;margin:0 auto}
+.firma-cap{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--cream);letter-spacing:.3em;margin-bottom:24px;display:block;opacity:.85}
+.firma h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,4vw,48px);line-height:1.2;margin-bottom:24px;letter-spacing:-.005em}
+.firma h2 em{font-style:italic;color:var(--cream)}
+.firma p{font-size:17px;line-height:1.75;color:rgba(255,255,255,.85);margin-bottom:18px}
+.firma-sig{font-family:var(--serif);font-style:italic;font-size:24px;color:var(--cream);margin-top:24px}
+.firma-sig small{display:block;font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:6px}
+@media (max-width:760px){.firma{padding:80px 24px}}
+
+/* === FOOTER cierre === */
+footer{padding:100px 60px 40px;text-align:center;background:var(--bg)}
+.foot-h{font-family:var(--serif);font-weight:300;font-size:clamp(36px,5.5vw,72px);line-height:1;letter-spacing:-.01em;margin-bottom:36px}
+.foot-h em{font-style:italic;color:var(--sage-deep)}
+.foot-wa{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:var(--bg);padding:20px 38px;border-radius:999px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:500}
+.foot-meta{margin-top:80px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);max-width:980px;margin-left:auto;margin-right:auto;padding-top:32px;border-top:1px solid rgba(30,28,25,.1)}
+.foot-meta a{color:inherit;border-bottom:1px solid var(--gold);padding-bottom:2px}
+@media (max-width:700px){footer{padding:60px 24px 30px}.foot-meta{justify-content:center;text-align:center}}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.1s cubic-bezier(.16,1,.3,1),transform 1.1s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#" class="nav-brand">Kirei<span>.</span></a>
+  <div class="nav-links">
+    <a href="#catalog">Catálogo</a>
+    <a href="#svc">Tratamientos</a>
+    <a href="#firma">Mayra</a>
+  </div>
+  <a href="https://wa.me/34634828566" target="_blank" rel="noopener" class="nav-cta">Cita</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-cap">Distribuidora oficial · Ikoniq Nails Lucena</span>
+    <h1>Geles<br>profesionales,<br><em>aplicados a mano.</em></h1>
+    <p class="hero-sub">Ikoniq Nails sin HEMA ni TPO + servicio personalizado de Mayra Cano. Pedido y cita por WhatsApp.</p>
+    <div class="hero-actions">
+      <a href="#catalog" class="btn-wa">Ver catálogo</a>
+      <a href="https://wa.me/34634828566" target="_blank" rel="noopener" class="hero-link">Pedir cita →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="bodegon">
+      <div class="bot bot-1"><div class="bot-cap"></div><div class="bot-label">PRIMA</div></div>
+      <div class="bot bot-2"><div class="bot-cap"></div><div class="bot-label">POLYTEK</div></div>
+      <div class="bot bot-3"><div class="bot-cap"></div><div class="bot-label">EVOLUTION</div></div>
+      <div class="bodegon-tag">— Ikoniq Nails Germany —</div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog reveal" id="catalog">
+  <div class="catalog-head">
+    <div>
+      <span class="catalog-cap">Catálogo · Lo que uso en cabina</span>
+      <h2>El catálogo<br><em>que recomiendo.</em></h2>
+    </div>
+    <p class="catalog-intro">Seis líneas de Ikoniq que cubren desde semipermanente hipoalergénico hasta acrilgel para extensiones largas.</p>
+  </div>
+  <div class="catalog-grid">
+    <article class="cat-card">
+      <div class="cat-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 3h6v2h-1l-1 4h2v10a2 2 0 01-2 2h-4a2 2 0 01-2-2V9h2L9 5H8V3z"/></svg>
+      </div>
+      <span class="cat-card-num">I</span>
+      <h3>PRIMA <em>Gel Polish</em></h3>
+      <span class="cat-card-tag">Esmalte semipermanente</span>
+      <p>Hipoalergénico sin HEMA ni TPO. Cobertura en una pasada, duración +4 semanas. El que más aplico.</p>
+      <a href="https://ikoniqnails.com/eu/products/products/gel-polish-hema-tpo-free-hypoallergenic/prima-hypoallergenic-gel-polish.html" target="_blank" rel="noopener" class="cat-card-cta">Comprar en Ikoniq →</a>
+    </article>
+    <article class="cat-card">
+      <div class="cat-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M10 2h4v3h-1l1 4h2v11a2 2 0 01-2 2h-4a2 2 0 01-2-2V9h2l1-4h-1V2z"/><path d="M9 13h6"/></svg>
+      </div>
+      <span class="cat-card-num">II</span>
+      <h3>PRIMA-HGX <em>Builder</em></h3>
+      <span class="cat-card-tag">Gel constructor</span>
+      <p>Builder gel en botella, alta densidad. Refuerzo y extensiones cortas con acabado natural.</p>
+      <a href="https://ikoniqnails.com/eu/products/nail-builder-gels-hypoallergenic-hema-tpo-free/prima-hgx-hard-gel-in-bottle.html" target="_blank" rel="noopener" class="cat-card-cta">Comprar en Ikoniq →</a>
+    </article>
+    <article class="cat-card">
+      <div class="cat-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+      </div>
+      <span class="cat-card-num">III</span>
+      <h3>NOVA <em>HEMA-Free</em></h3>
+      <span class="cat-card-tag">Esmalte sensible</span>
+      <p>Para sensibilidad confirmada al HEMA. Acabado profesional con secado UV/LED estándar.</p>
+      <a href="https://ikoniqnails.com/eu/products/products/gel-polish-hema-tpo-free-hypoallergenic/nova-hema-free-gel-polish.html" target="_blank" rel="noopener" class="cat-card-cta">Comprar en Ikoniq →</a>
+    </article>
+    <article class="cat-card">
+      <div class="cat-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+      </div>
+      <span class="cat-card-num">IV</span>
+      <h3>POLYTEK <em>Acrylgel</em></h3>
+      <span class="cat-card-tag">Acrilgel híbrido</span>
+      <p>Acrílico-gel híbrido en tubo. Para extensiones largas y forma esculpida.</p>
+      <a href="https://ikoniqnails.com/eu/products/nail-builder-gels-hypoallergenic-hema-tpo-free/polytek-acrylgel.html" target="_blank" rel="noopener" class="cat-card-cta">Comprar en Ikoniq →</a>
+    </article>
+    <article class="cat-card">
+      <div class="cat-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M4 12h16M4 8h16M4 16h16M8 4v16M16 4v16"/></svg>
+      </div>
+      <span class="cat-card-num">V</span>
+      <h3>DEPEND <em>Fibreglass</em></h3>
+      <span class="cat-card-tag">Refuerzo de fibra</span>
+      <p>Fibra de vidrio para uñas frágiles. Resistencia sin añadir volumen ni cambiar apariencia natural.</p>
+      <a href="https://ikoniqnails.com/eu/products/nail-builder-gels-hypoallergenic-hema-tpo-free/depend-fibreglass-gel.html" target="_blank" rel="noopener" class="cat-card-cta">Comprar en Ikoniq →</a>
+    </article>
+    <article class="cat-card">
+      <div class="cat-card-art">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg>
+      </div>
+      <span class="cat-card-num">VI</span>
+      <h3>EVOLUTION <em>Soak-Off</em></h3>
+      <span class="cat-card-tag">Gel removible</span>
+      <p>Gel de escultura removible con acetona, sin lima agresiva. Para alternar uñas naturales y trabajadas.</p>
+      <a href="https://ikoniqnails.com/eu/products/nail-builder-gels-hypoallergenic-hema-tpo-free/evolution-soak-off-sculpting-gels.html" target="_blank" rel="noopener" class="cat-card-cta">Comprar en Ikoniq →</a>
+    </article>
+  </div>
+  <div class="catalog-foot">
+    <a href="https://ikoniqnails.com/eu/" target="_blank" rel="noopener">Ver el catálogo completo en Ikoniqnails →</a>
+  </div>
+</section>
+
+<section class="svc reveal" id="svc">
+  <div class="svc-inner">
+    <span class="svc-cap">Tratamientos · 13 técnicas · 4 áreas</span>
+    <h2>Manicura es una<br>parte. <em>El resto también lo hago.</em></h2>
+    <div class="svc-grid">
+      <div class="svc-item">
+        <span class="svc-item-num">I</span>
+        <h3>Estética <em>corporal</em></h3>
+        <p>Maderoterapia, presoterapia, drenaje linfático.</p>
+      </div>
+      <div class="svc-item">
+        <span class="svc-item-num">II</span>
+        <h3>Rostro y <em>mirada</em></h3>
+        <p>Limpieza facial, lifting coreano, pestañas y cejas.</p>
+      </div>
+      <div class="svc-item">
+        <span class="svc-item-num">III</span>
+        <h3>Manos y <em>pies</em></h3>
+        <p>Manicura y pedicura completa, esmaltado semipermanente.</p>
+      </div>
+      <div class="svc-item">
+        <span class="svc-item-num">IV</span>
+        <h3>Aparatología <em>avanzada</em></h3>
+        <p>Cavitación, radiofrecuencia, ondas rusas, láser.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="firma reveal" id="firma">
+  <div class="firma-inner">
+    <span class="firma-cap">— Una nota personal —</span>
+    <h2>Vendo y aplico <em>solo lo que me funciona</em>.</h2>
+    <p>Distribuyo Ikoniq porque su fórmula libre de HEMA y TPO me permite trabajar con clientas sensibles sin renunciar a duración. Si tienes dudas sobre qué producto comprar o qué tratamiento se adapta a ti, escríbeme antes.</p>
+    <div class="firma-sig">Mayra Cano<small>Esteticista · Kirei · Lucena</small></div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <h2 class="foot-h reveal">Hablamos<br><em>cuando quieras.</em></h2>
+  <a href="https://wa.me/34634828566" target="_blank" rel="noopener" class="foot-wa">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654z"/></svg>
+    Escribir por WhatsApp
+  </a>
+  <div class="foot-meta">
+    <span>Lucena · Córdoba</span>
+    <a href="https://instagram.com/kireibellezaestetica" target="_blank" rel="noopener">@kireibellezaestetica</a>
+    <span>Cita previa</span>
+  </div>
+</footer>
+
+<script>
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+</script>
+</body>
+</html>

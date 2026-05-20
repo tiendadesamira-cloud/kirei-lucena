@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirei — E · Tipográfico puro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F2EDE0;--ink:#1A1816;--ink-soft:#5C5A55;--gold:#A78250;--sage:#6E8770;--blush:#D4C0AB;
+  --serif:'Cormorant',serif;--sans:'Outfit',system-ui,sans-serif;
+}
+html{scroll-behavior:smooth;background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(circle at 8% 22%,rgba(167,130,80,.05) 0%,transparent 18%),
+    radial-gradient(circle at 92% 78%,rgba(110,135,112,.06) 0%,transparent 22%);
+  background-attachment:fixed;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+
+/* === Línea de filete superior decorativa === */
+.frame{position:fixed;top:18px;left:18px;right:18px;bottom:18px;border:1px solid rgba(26,24,22,.08);pointer-events:none;z-index:5}
+@media (max-width:760px){.frame{top:12px;left:12px;right:12px;bottom:12px}}
+
+/* === NAV minimal === */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:36px 60px}
+.nav-brand{font-family:var(--serif);font-style:italic;font-size:26px;letter-spacing:.02em;color:var(--ink)}
+.nav-brand-ornament{display:inline-block;width:24px;height:1px;background:var(--gold);margin:0 8px;vertical-align:middle}
+.nav-links{display:flex;gap:32px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+.nav-links a{position:relative;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s ease}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--ink);border-bottom:1px solid var(--gold);padding-bottom:3px}
+@media (max-width:760px){.nav{padding:24px 28px}.nav-links{display:none}}
+
+/* === HERO tipografico GIGANTE === */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:120px 60px;position:relative}
+.hero-cap{font-family:var(--serif);font-style:italic;font-size:18px;letter-spacing:.06em;color:var(--gold);margin-bottom:48px}
+.hero-cap::before{content:'— ';color:var(--ink-soft)}
+.hero-cap::after{content:' —';color:var(--ink-soft)}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(64px,16vw,260px);line-height:.88;letter-spacing:-.025em;margin-bottom:48px;color:var(--ink)}
+.hero h1 em{font-style:italic;color:var(--sage);display:block}
+.hero h1 .hairline{position:relative;display:inline-block}
+.hero h1 .hairline::after{content:'';position:absolute;left:0;right:0;bottom:.18em;height:2px;background:var(--gold);opacity:.7}
+.hero-meta{position:absolute;left:60px;bottom:60px;right:60px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;border-top:1px solid rgba(26,24,22,.15);padding-top:24px}
+.hero-line{font-family:var(--serif);font-style:italic;font-size:clamp(17px,2vw,22px);max-width:480px;color:var(--ink-soft);line-height:1.5}
+.hero-cta{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:4px;transition:opacity .3s}
+.hero-cta:hover{opacity:.6}
+@media (max-width:760px){.hero{padding:120px 32px 140px}.hero-meta{left:32px;right:32px;bottom:40px}}
+
+/* === BANDA poética con texturas === */
+.poetic{padding:160px 60px;text-align:center;position:relative}
+.poetic-ornament{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold);letter-spacing:.4em;margin-bottom:40px;display:block}
+.poetic blockquote{font-family:var(--serif);font-weight:300;font-size:clamp(30px,5vw,68px);line-height:1.2;letter-spacing:-.005em;max-width:1000px;margin:0 auto 56px;color:var(--ink);font-style:italic}
+.poetic blockquote em{font-style:normal;color:var(--sage);position:relative}
+.poetic blockquote em::after{content:'';position:absolute;left:-4px;right:-4px;bottom:.1em;height:1px;background:var(--gold);opacity:.5}
+.poetic cite{font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+.poetic cite::before{content:'— '}
+@media (max-width:760px){.poetic{padding:80px 28px}}
+
+/* === MENÚ DE TRATAMIENTOS estilo carta === */
+.menu{padding:120px 60px 160px;max-width:920px;margin:0 auto}
+.menu-cap{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold);letter-spacing:.3em;margin-bottom:32px;display:block;text-align:center}
+.menu h2{font-family:var(--serif);font-weight:300;font-size:clamp(40px,6vw,84px);line-height:1;letter-spacing:-.01em;margin-bottom:80px;text-align:center}
+.menu h2 em{font-style:italic;color:var(--sage)}
+.menu-section{margin-bottom:64px}
+.menu-section-title{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--gold);margin-bottom:20px;letter-spacing:.05em;border-bottom:1px solid rgba(26,24,22,.15);padding-bottom:12px;display:flex;align-items:baseline;justify-content:space-between}
+.menu-section-title .roman{font-size:14px;color:var(--ink-soft);font-style:normal;letter-spacing:.25em}
+.menu-line{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;align-items:baseline;border-bottom:1px dotted rgba(26,24,22,.12)}
+.menu-line .name{font-family:var(--serif);font-size:clamp(20px,2.4vw,28px);font-weight:400;color:var(--ink)}
+.menu-line .name em{font-style:italic}
+.menu-line .desc{display:block;font-size:13px;color:var(--ink-soft);margin-top:4px;font-family:var(--sans);font-style:italic;letter-spacing:.02em}
+.menu-line .badge{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);align-self:start;white-space:nowrap}
+@media (max-width:760px){.menu{padding:80px 28px}.menu-line .name{font-size:18px}}
+
+/* === BLOQUE FIRMA tipográfico === */
+.firma{padding:160px 60px;text-align:center;background:rgba(110,135,112,.06)}
+.firma-inner{max-width:780px;margin:0 auto}
+.firma p{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.5vw,28px);line-height:1.6;color:var(--ink);margin-bottom:24px}
+.firma-sign{font-family:var(--serif);font-style:italic;font-size:42px;color:var(--ink);margin-top:32px;letter-spacing:.02em}
+.firma-sign small{display:block;font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);margin-top:10px}
+@media (max-width:760px){.firma{padding:80px 28px}}
+
+/* === CIERRE invitación === */
+.cierre{padding:140px 60px;text-align:center}
+.cierre h2{font-family:var(--serif);font-weight:300;font-size:clamp(48px,8vw,140px);line-height:.95;letter-spacing:-.015em;margin-bottom:48px;color:var(--ink)}
+.cierre h2 em{font-style:italic;color:var(--sage)}
+.cierre-cta{display:inline-flex;align-items:center;gap:14px;border:1px solid var(--ink);padding:22px 44px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink);transition:background .3s,color .3s}
+.cierre-cta:hover{background:var(--ink);color:var(--paper)}
+.cierre-meta{margin-top:80px;display:flex;justify-content:center;gap:36px;flex-wrap:wrap;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft)}
+.cierre-meta a{color:inherit;border-bottom:1px solid var(--gold);padding-bottom:2px}
+@media (max-width:700px){.cierre{padding:80px 28px}.cierre-meta{gap:18px}}
+
+.reveal{opacity:0;transform:translateY(48px);transition:opacity 1.2s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<div class="frame"></div>
+
+<nav class="nav">
+  <a href="#" class="nav-brand">Kirei<span class="nav-brand-ornament"></span><em style="font-size:11px;letter-spacing:.3em;color:var(--gold);font-style:normal;text-transform:uppercase;">Lucena</em></a>
+  <div class="nav-links">
+    <a href="#menu">Tratamientos</a>
+    <a href="#firma">Mayra</a>
+  </div>
+  <a href="https://wa.me/34634828566" target="_blank" rel="noopener" class="nav-cta">Pedir cita</a>
+</nav>
+
+<section class="hero reveal">
+  <span class="hero-cap">Belleza Estética · Lucena, Córdoba</span>
+  <h1>Cuidar<br><em><span class="hairline">no es</span> una prisa</em></h1>
+  <div class="hero-meta">
+    <p class="hero-line">Trece tratamientos en cuatro áreas. Cabina privada. Cita previa por WhatsApp.</p>
+    <a href="https://wa.me/34634828566" target="_blank" rel="noopener" class="hero-cta">Pedir cita →</a>
+  </div>
+</section>
+
+<section class="poetic reveal">
+  <span class="poetic-ornament">— ⌘ —</span>
+  <blockquote>"No creo en los tratamientos en serie. <em>Cada cuerpo es distinto</em> y cada cita la diseño contigo, no antes de conocerte."</blockquote>
+  <cite>Mayra Cano, esteticista</cite>
+</section>
+
+<section class="menu reveal" id="menu">
+  <span class="menu-cap">— La carta —</span>
+  <h2>Lo que<br><em>hago bien.</em></h2>
+
+  <div class="menu-section">
+    <h3 class="menu-section-title">Corporal <span class="roman">I</span></h3>
+    <div class="menu-line">
+      <div><span class="name"><em>Maderoterapia</em></span><span class="desc">Técnica manual con instrumentos de madera para celulitis y contorno.</span></div>
+      <span class="badge">Estrella</span>
+    </div>
+    <div class="menu-line">
+      <div><span class="name"><em>Presoterapia</em></span><span class="desc">Drenaje con botas de compresión. Piernas pesadas y retención.</span></div>
+      <span class="badge">Estrella</span>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Drenaje linfático <em>manual</em></span><span class="desc">Activación del sistema linfático y reducción de inflamación.</span></div>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <h3 class="menu-section-title">Rostro y mirada <span class="roman">II</span></h3>
+    <div class="menu-line">
+      <div><span class="name"><em>Lifting</em> de pestañas</span><span class="desc">Curvado y tinte natural. Resultado 6-8 semanas.</span></div>
+      <span class="badge">Estrella</span>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Laminación de <em>cejas</em></span><span class="desc">Ordenar, fijar y nutrir. Efecto pelo a pelo natural.</span></div>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Limpieza facial <em>profunda</em></span><span class="desc">Extracción, exfoliación y mascarilla personalizada.</span></div>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Lifting <em>coreano</em></span><span class="desc">Masaje facial manual. Tono muscular sin agujas.</span></div>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Hidratación <em>labial</em></span><span class="desc">Exfoliación, nutrición e hidratación profunda.</span></div>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <h3 class="menu-section-title">Manos y pies <span class="roman">III</span></h3>
+    <div class="menu-line">
+      <div><span class="name">Manicura <em>completa</em></span><span class="desc">Cuticulas, hidratación y esmaltado clásico o semipermanente.</span></div>
+      <span class="badge">Estrella</span>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Pedicura <em>completa</em></span><span class="desc">Tratamiento de durezas, hidratación y esmaltado.</span></div>
+    </div>
+  </div>
+
+  <div class="menu-section">
+    <h3 class="menu-section-title">Aparatología <span class="roman">IV</span></h3>
+    <div class="menu-line">
+      <div><span class="name">Cavitación y <em>vacumterapia</em></span><span class="desc">Reducción localizada con ultrasonidos y presión negativa.</span></div>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Radiofrecuencia + <em>ondas rusas</em></span><span class="desc">Reafirmación tisular y tonificación muscular combinada.</span></div>
+    </div>
+    <div class="menu-line">
+      <div><span class="name">Depilación <em>láser</em></span><span class="desc">Tecnología profesional. Consulta zonas y fototipos.</span></div>
+      <span class="badge">Externo</span>
+    </div>
+  </div>
+</section>
+
+<section class="firma reveal" id="firma">
+  <div class="firma-inner">
+    <p>"Antes tenía un local grande. Hoy he reducido para poder dedicar a cada clienta el tiempo que de verdad necesita. La cita es siempre previa, la dirección la mando por WhatsApp al confirmar."</p>
+    <div class="firma-sign">Mayra Cano<small>Esteticista · Kirei · Lucena</small></div>
+  </div>
+</section>
+
+<section class="cierre reveal" id="contacto">
+  <h2>Hablamos<br><em>cuando quieras.</em></h2>
+  <a href="https://wa.me/34634828566" target="_blank" rel="noopener" class="cierre-cta">
+    Pedir cita por WhatsApp
+  </a>
+  <div class="cierre-meta">
+    <span>Lucena · Córdoba</span>
+    <a href="https://instagram.com/kireibellezaestetica" target="_blank" rel="noopener">@kireibellezaestetica</a>
+    <span>Cita previa</span>
+  </div>
+</section>
+
+<script>
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));}
+</script>
+</body>
+</html>
