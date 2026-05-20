@@ -18,12 +18,13 @@
     --accent-water-dark: #5F95A6;
     --accent-water-soft: #D6E3E8;
 
-    --accent-sage: #A8B89A;
-    --accent-sage-dark: #8AA088;
-    --accent-sage-soft: #E0E7DC;
+    /* Colores extraídos del logo Kirei (mandala + texto sage + anillo dorado) */
+    --accent-sage: #9FBFB2;
+    --accent-sage-dark: #7CA590;
+    --accent-sage-soft: #DCEAE5;
 
-    --accent-gold: #C9A96E;
-    --accent-gold-dark: #A8902F;
+    --accent-gold: #C9A560;
+    --accent-gold-dark: #B5985C;
     --accent-gold-soft: #E8D9B5;
 
     --hairline: #E8E0D2;
